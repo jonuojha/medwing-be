@@ -2,6 +2,7 @@ package medwing.be.provider
 
 import grails.core.GrailsApplication
 import groovyx.net.http.RESTClient
+import medwing.be.Marker
 
 import javax.annotation.PostConstruct
 
@@ -21,14 +22,23 @@ class GoogleGeoService implements IGeoProvider {
     }
 
     @Override
-    def getGeocode(String address) {
-        def res
+    List<Marker> getGeocode(String address) {
+        List<Marker> markers = new ArrayList<>()
         try {
             RESTClient client = new RESTClient(host)
-            res = client.get(path: context, query: [address: address, key: apiKey], headers: [:]).data
+            def res = client.get(path: context, query: [address: address, key: apiKey], headers: [:]).data.results
+
+            res.each {
+                markers.add(new Marker(
+                        id: it.place_id,
+                        name: it.formatted_address,
+                        address: it.formatted_address,
+                        lat: it.geometry.location.lat,
+                        lng: it.geometry.location.lng))
+            }
         } catch (Exception e) {
             throw e
         }
-        return res
+        return markers
     }
 }
