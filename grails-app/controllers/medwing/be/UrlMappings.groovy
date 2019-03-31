@@ -9,6 +9,7 @@ class UrlMappings {
                                                        POST: "save"])
             "/markers/$id"(controller: "markers", action: [DELETE: 'delete',
                                                            PUT   : "update"])
+            "/geocode"(controller: "geocode")
         }
 
         "500"(view: '/error')

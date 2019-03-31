@@ -1,4 +1,10 @@
 ---
+medwing:
+    google:
+        geocode:
+            host: 'https://maps.googleapis.com'
+            context: '/maps/api/geocode/json'
+            apiKey: 'AIzaSyC60fyHb2IlmWqNEvC7FC43f71gfV5TgI0'
 grails:
     cors:
         enabled: true
