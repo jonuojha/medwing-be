@@ -29,13 +29,14 @@ class MarkersController {
         if (!marker) {
             response.status = HttpStatus.NOT_FOUND.value()
             render([message: 'Marker not found'])
+            return
         }
         try {
-            marker.address = params.address
+            marker.name = request.JSON.newName
             marker.save()
         } catch (Exception e) {
             response.status = HttpStatus.INTERNAL_SERVER_ERROR.value()
-            render([message: 'Failed to delete marker', error: e.message] as JSON)
+            render([message: 'Failed to update marker', error: e.message] as JSON)
         }
         render([message: "Updated marker"] as JSON)
     }
