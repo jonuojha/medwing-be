@@ -1,6 +1,7 @@
 ## Setup
 
 ###Grails
+
 Import this [grails](https://grails.org/download.html) project with gradle.
 
 ###Database
