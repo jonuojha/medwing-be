@@ -1,10 +1,10 @@
 ## Setup
 
-###Grails
+### Grails
 
 Import this [grails](https://grails.org/download.html) project with gradle.
 
-###Database
+### Database
 Using mongodb database adapter, which can connect to 
 Mongo DB or Azure Cosmos DB dynamically, based on 
 given configuration
