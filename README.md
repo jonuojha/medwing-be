@@ -14,7 +14,7 @@ To setup locally install [Mongo DB](https://www.mongodb.com/download-center)
 Make sure MongoDB is running on 27017 port, if it's different we can configure in `application.yml`
 
 
-## Fire it with
+## Fire it
 
 With IDE configuration or run following command in project directory `./gradlew bootrun`
 
